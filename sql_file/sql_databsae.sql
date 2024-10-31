@@ -13,6 +13,9 @@ CREATE TABLE user (
     CHECK   (LENGTH(password) >= 8 AND  LENGTH(password) <= 16)
 );
 
+--Add new column called user_status to user table
+ALTER TABLE user ADD COLUMN user_status VARCHAR (20);
+
 --Create admin table
 CREATE TABLE admin (
     adm_id CHAR (6) primary KEY,
@@ -88,6 +91,17 @@ VALUES
 (3, 'nethmin', 'nethmi', 'nimasha', 'nethminimasha@gmail.com', 'Nethmi@200#', '0764245185', '2002-02-07', 'female'),
 (4, 'kasuns', 'kasun', 'samarakoon', 'kasunsama@gmail.com', 'Kasun@1998$', '0712345678', '1998-05-12', 'male'),
 (5, 'sachinir', 'sachini', 'rathnayake', 'sachirathna@gmail.com', 'Sachini#2020', '0719876543', '2000-11-25', 'female');
+
+--Insert data to user_status column in  user table
+UPDATE user
+SET user_status = CASE user_id
+    WHEN 1 THEN 'admin'
+    WHEN 2 THEN 'student'
+    WHEN 3 THEN 'student'
+    WHEN 4 THEN 'lecturer'
+    WHEN 5 THEN 'lecturer'
+END
+WHERE user_id IN (1, 2, 3, 4, 5);
 
 
 INSERT INTO admin
