@@ -117,3 +117,17 @@ VALUES
 ('c004', 'Programming Fundamentals'),
 ('c005', 'Thermodynamics'),
 ('c006', 'Fluid Mechanics');
+
+CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'admin123';
+GRANT ALL PRIVILAGES ON fot_lms.* TO 'admin_user'@'localhost';
+
+CREATE USER 'student_user'@'localhost' IDENTIFIED BY 'student123';
+GRANT SELECT, UPDATE, DELETE ON fot_lms.student TO 'student_user'@'localhost';
+GRANT SELECT, DELETE ON fot_lms.course TO 'student_user'@'localhost';
+
+CREATE USER 'lecturer_user'@'localhost' IDENTIFIED BY 'lecturer123';
+GRANT SELECT, UPDATE, DELETE ON fot_lms.lecturer TO 'lecturer_user'@'localhost';
+GRANT SELECT, DELETE ON fot_lms.course TO 'lecturer_user'@'localhost';
+GRANT SELECT ON fot_lms.student TO 'lecturer_user'@'localhost';
+
+FLUSH PRIVILEGES;
