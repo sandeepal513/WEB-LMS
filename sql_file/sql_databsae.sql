@@ -1,3 +1,5 @@
+CREATE DATABASE fot_lms;
+
 CREATE TABLE user (
     user_id INT PRIMARY KEY ,
     username VARCHAR (255) NOT NULL,
