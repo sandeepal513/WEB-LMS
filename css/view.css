@@ -10,27 +10,30 @@ body{
     background-color:#eae0cc;
 }
 
-.container-fluid{
+.container{
     width: 100%;
     text-align: center;
 }
 
-.container-fluid .heading{
+.container .heading{
     font-size: 40px;
     color: #334;
 }
 
-.container-fluid .box-container{
+.container .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
 }
 
-.container-fluid .box-container .box{
+.container .box-container .box{
     background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0.5px 10px rgba(0, 0, 0, .2);
 }
 
-.container-fluid .box-container .box .image{
+.container .box-container .box .image{
     margin-bottom: 20px;
     overflow: hidden;
     width: 100%;
@@ -38,10 +41,54 @@ body{
     border-radius: 5px;
 }
 
-.container-fluid .box-container .box .image .img{
+.container .box-container .box .image .img{
     height: 100%;
-    width: 100%;
+    width: 80%;
     object-fit: cover;
+}
+
+.container .box-container .box:hover .image .img{
+    transform: scale(1.1);
+}
+
+.container .box-container .box .content p{
+    font-size: 15px;
+    color: #777;
+    line-height: 2;
+    padding: 15px 0;
+}
+
+.container .box-container .box .content .btn{
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid #334;
+    color: #334;
+    font-size: 16px;
+}
+
+.container .box-container .box .content .btn:hover{
+    background-color: crimson;
+    border-color: crimson;
+    color: #fff;
+}
+
+.container .box-container .box .content .icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #334;
+}
+
+.container .box-container .box .content .icons span{
+    font-size: 14px;
+    color: #777;
+}
+
+.container .box-container .box .content .icons span i{
+    color: crimson;
+    padding-right: 5px;
 }
 
 .mhead{
@@ -54,15 +101,37 @@ body{
 }
 
 .para1{
-    padding-left: 50px;
-    padding-top: 10px;
+    font-size: 20px;
+    background-color: #F0FFFF;
+    color: #334; 
+    margin: 10px 0px 20px 30px;
+    padding-left: 40px;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.f1{
-    float: left;
+.h4{
+    margin-top: 30px;
 }
 
 .form-margin {
     margin-right: 40px; 
+}
+
+#load-more{
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 30px;
+    border: 1px solid #334;
+    color: #334;
+    font-size: 16px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#load-more:hover{
+    background-color: crimson;
+    border-color: crimson;
+    color: #fff;
 }
 
