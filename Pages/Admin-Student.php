@@ -1,10 +1,12 @@
 <?php
-    INCLUDE "admin_user.php";  
+    INCLUDE "../connection/admin_user.php";  
     
     if(isset($_GET['delete_id'])){
         $delete_id = $_GET['delete_id'];
-        $delete_student = "DELETE FROM student WHERE stu_id = '$delete_id'";
+        $delete_student = "DELETE FROM student WHERE user_id = '$delete_id'";
+        $delete_user = "DELETE FROM user WHERE user_id = '$delete_id'";
         mysqli_query($adm_conn, $delete_student);
+        mysqli_query($adm_conn, $delete_user);
         header("Location: Admin-Student.php");
         exit();
     }
@@ -12,7 +14,7 @@
     $edit_data = null;
     if(isset($_GET['edit_id'])){
         $edit_id = $_GET['edit_id'];
-        $edit_student = "SELECT * FROM student WHERE stu_id = '$edit_id'";
+        $edit_student = "SELECT * FROM student WHERE user_id = '$edit_id'";
         $query = mysqli_query($adm_conn, $edit_student);
         $edit_data = mysqli_fetch_array($query);
     }
@@ -27,8 +29,21 @@
         $mobile_no = $_POST['stu_mb_no'];
         $dob = $_POST['stu_dob'];
         $gender = $_POST['stu_gender'];
+
+        $update_user = "UPDATE user SET
+                                        username = '$username',
+                                        first_name = '$first_name',
+                                        last_name = '$last_name',
+                                        email = '$email',
+                                        password = '$password',
+                                        mb_no = '$mobile_no',
+                                        dob = '$dob',
+                                        gender = '$gender',
+                                        user_status = 'student'
+
+                                        WHERE user_id = '$edit_id'";
     
-        $update_query = "UPDATE student SET 
+        $update_student = "UPDATE student SET 
                             stu_username='$username',
                             stu_first_name='$first_name', 
                             stu_last_name='$last_name', 
@@ -38,8 +53,9 @@
                             stu_dob='$dob', 
                             stu_gender='$gender'
 
-                            WHERE stu_id='$stu_id'";
-        mysqli_query($adm_conn, $update_query);
+                            WHERE user_id = '$edit_id'";
+        mysqli_query($adm_conn, $update_user);
+        mysqli_query($adm_conn, $update_student);
         header("Location: Admin-Student.php");
         exit();
     }
@@ -51,14 +67,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../CSS/style2.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     
     <div class="sidebar d-flex flex-column align-items-center">
         <div class="profile">
-            <img src="./img/admin_profile.png" alt="Profile" class="profile-pic w-100">
+            <img src="../img/admin_profile.png" alt="Profile" class="profile-pic w-100">
             <h2>Admin Name</h2>
             <h6 class="stu-name">ADMIN</h6>
             <button class="btn btn-primary">View Profile</button>
@@ -122,8 +138,8 @@
                     echo "<td>".$fetch_data['stu_dob']."</td>";
                     echo "<td>".$fetch_data['stu_gender']."</td>";
                     echo "<td>
-                            <a href='?edit_id=" . $fetch_data['stu_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
-                            <a href='?delete_id=" . $fetch_data['stu_id'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Are you sure you want to delete?\")'>Delete</a>
+                            <a href='?edit_id=" . $fetch_data['user_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
+                            <a href='?delete_id=" . $fetch_data['user_id'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Are you sure you want to delete?\")'>Delete</a>
                         </td>";
 
                 echo "</tr>";
