@@ -85,7 +85,7 @@
 
     <div class="square-box"></div>
 
-    <a href="display.php">Display table</a>
+    <!-- <a href="Tables_display.php">Display table</a> -->
 
 
 
@@ -93,7 +93,7 @@
 
 
     <!-- SCRIPT START -->
-     
+
    <script>
 
     function setRole(role) {
