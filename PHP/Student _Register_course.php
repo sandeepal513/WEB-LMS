@@ -125,8 +125,8 @@ $result = $conn->query($sql);
                                         <div class="card-body">
                                             <h5 class="course-title"><?php echo htmlspecialchars($row['cour_name']); ?></h5>
                                             <p class="course-author">Lecturer Name :
-                                                <?php echo htmlspecialchars($row['lect_first_name']) ." ". htmlspecialchars($row['lect_last_name']) ; ?>
-                                                
+                                                <?php echo htmlspecialchars($row['lect_first_name']) . " " . htmlspecialchars($row['lect_last_name']); ?>
+
 
                                             </p>
                                             <?php
@@ -135,9 +135,14 @@ $result = $conn->query($sql);
 
                                             <!-- <div class="star-rating">★★★★★</div> -->
                                             <div>
-                                                <button class="btn btn-primary">
-                                                    <span>Apply Course</span>
-                                                </button>
+                                                <form action="Enroll_btn.php" method="POST">
+                                                    <input type="hidden" name="cour_code"
+                                                        value="<?php echo htmlspecialchars($row['cour_code']); ?>">
+                                                    <input type="hidden" name="stu_id" value="<?php echo $student_id; ?>">
+                                                    <button class="btn btn-primary w-50">
+                                                        <span>Enroll</span>
+                                                    </button>
+                                                </form>
 
                                             </div>
 
