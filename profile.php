@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$stu_id = 1;
+$stu_id = 1; // Set this to the specific student ID you want to display
 $sql = "SELECT * FROM student WHERE stu_id = 's001'";
 $result = $conn->query($sql);
 
@@ -176,4 +176,5 @@ if (isset($_POST['save_changes'])) {
     </script>
 </body>
 </html>
+
 

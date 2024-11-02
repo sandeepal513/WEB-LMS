@@ -20,7 +20,7 @@
             <img src="./img/student_profile.png" alt="Profile" class="profile-pic">
             <h2>Student Name</h2>
             <h6 class="stu-name">STUDENT</h6>
-            <button class="btn btn-primary">View Profile</button>
+            <button class="btn btn-primary" id="fetchButton">View Profile</button>
         </div>
         <ul class="nav flex-column nav-links w-100 px-3">
             <li class="nav-item active">
