@@ -3,8 +3,10 @@
     
     if(isset($_GET['delete_id'])){
         $delete_id = $_GET['delete_id'];
-        $delete_lect = "DELETE FROM lecturer WHERE lect_id='$delete_id'";
+        $delete_user = "DELETE FROM user WHERE user_id='$delete_id'";
+        $delete_lect = "DELETE FROM lecturer WHERE user_id='$delete_id'";
         mysqli_query($adm_conn, $delete_lect);
+        mysqli_query($adm_conn, $delete_user);
         header("Location: lecturer.php");
         exit();
     }else {
@@ -14,7 +16,7 @@
     $edit_data = null;
     if(isset($_GET['edit_id'])){
         $edit_id = $_GET['edit_id'];
-        $edit_lect = "SELECT * FROM lecturer WHERE lect_id = '$edit_id'";
+        $edit_lect = "SELECT * FROM lecturer WHERE user_id = '$edit_id'";
         $query = mysqli_query($adm_conn, $edit_lect);
         $edit_data = mysqli_fetch_array($query);
     }
@@ -40,8 +42,21 @@
                             lect_dob='$dob', 
                             lect_gender='$gender'
 
-                            WHERE lect_id='$lect_id'";
-       if (mysqli_query($adm_conn, $update_query)) { 
+                            WHERE user_id='$edit_id'";
+
+
+        $update_user = "UPDATE user SET
+                            username='$username',
+                            first_name='$first_name',
+                            last_name='$last_name', 
+                            email='$email',
+                            password ='$password', 
+                            mb_no='$mobile_no', 
+                            dob='$dob', 
+                            gender='$gender'
+
+                            WHERE user_id='$edit_id'";
+       if (mysqli_query($adm_conn, $update_query) && mysqli_query($adm_conn, $update_user)) { 
         header("Location: lecturer.php");
         exit();
     } else {
@@ -127,8 +142,8 @@
                     echo "<td>".$fetch_data['lect_dob']."</td>";
                     echo "<td>".$fetch_data['lect_gender']."</td>";
                     echo "<td>
-                            <a href='?edit_id=" . $fetch_data['lect_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
-                            <a href='?delete_id=" . $fetch_data['lect_id'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Are you sure you want to delete?\")'>Delete</a>
+                            <a href='?edit_id=" . $fetch_data['user_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
+                            <a href='?delete_id=" . $fetch_data['user_id'] . "' class='btn btn-sm btn-danger' onclick='return confirm(\"Are you sure you want to delete?\")'>Delete</a>
                         </td>";
 
             }
