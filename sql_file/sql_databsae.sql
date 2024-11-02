@@ -63,6 +63,8 @@ CREATE TABLE course (
     cour_name VARCHAR (50) NOT NULL
 );
 
+ALTER TABLE course ADD COLUMN cour_content VARCHAR(2083);
+
 CREATE TABLE stu_course (
     cour_code  CHAR (6),
     stu_id CHAR (6),
