@@ -27,9 +27,8 @@
                 <div class="mb-3">
                     <label for="password">Password</label>
                     <div class="d-flex bg-white">
-                        <input type="password" name="pword" class="form-control" id="password" placeholder="Enter password (8-12 characters)">
-                        <img src="./img/eye.png" alt="eye" id="eye" style="width:  30px; height: 30px;">
-
+                        <input type="password" name="pword" class="form-control" id="password" placeholder="Enter password (8-16 characters)">
+                        <img src="./img/eye.png" alt="eye" id="eye" style="width: 30px; height: 30px; padding-right: 10px;">
                     </div>
 
                 </div>
