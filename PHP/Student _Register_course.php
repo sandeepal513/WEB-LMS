@@ -1,4 +1,3 @@
-
 <?php
 // Database connection settings
 $servername = "localhost";
@@ -85,61 +84,56 @@ $result = $conn->query($sql);
     <!--Head Content-->
     <div class="head-content">
         <header class="d-flex justify-content-center align-content-center mb-4">
-            <input type="text" placeholder="Serach Courses...." class="form-control w-25">
+            <input type="text" placeholder="Serach Courses...." class="form-control w-25 me-2">
+            <div class="search-icon">
+            <i class="fas fa-search" style="color: #FFD700; font-size: 24px;"></i>
+
+            </div>
+
+
+            
+
         </header>
         <div class="main-content">
             <!--Your Content-->
 
             <!-- Course Grid -->
             <div class="row">
-                <!-- Course Card 1 -->
-               <!--<div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">
-                        <div class="card-body">
-                            <h5 class="course-title">The Ultimate Git Course 2024: Zero to Hero</h5>
-                            <p class="course-author">Code Bless You</p>
-                            <div class="star-rating">★★★★★</div>
-                            <button class="btn btn-primary">
-                                <span>Start Course</span>
-                            </button>
-                        </div>
+
+
+                <div class="main-content container mt-4">
+                    <div class="row">
+                        <?php if ($result->num_rows > 0): ?>
+                            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">
+                                        <div class="card-body">
+                                            <h5 class="course-title"><?php echo htmlspecialchars($row['cour_name']); ?></h5>
+                                            <p class="course-author">Course Code:
+                                                <?php echo htmlspecialchars($row['cour_code']); ?>
+                                            </p>
+                                            <?php
+                                            $starRating = str_repeat('★', $row['rating']) . str_repeat('☆', 5 - $row['rating']); ?>
+                                            <div class='star-rating'><?php echo $starRating; ?></div>
+
+                                            <!-- <div class="star-rating">★★★★★</div> -->
+                                            <div>
+                                                <button class="btn btn-primary">
+                                                    <span>Start Course</span>
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <p>No courses available.</p>
+                        <?php endif; ?>
                     </div>
                 </div>
-                
--->
-
-<div class="main-content container mt-4">
-    <div class="row">
-        <?php if ($result->num_rows > 0): ?>
-            <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">
-                        <div class="card-body">
-                            <h5 class="course-title"><?php echo htmlspecialchars($row['cour_name']); ?></h5>
-                            <p class="course-author">Course Code: <?php echo htmlspecialchars($row['cour_code']); ?></p>
-                           <?php
-                           $starRating = str_repeat('★', $row['rating']) . str_repeat('☆', 5 - $row['rating']);?> 
-                           <div class='star-rating'><?php echo $starRating; ?></div>
-                           
-                            <!-- <div class="star-rating">★★★★★</div> -->
-                            <div>
-                            <button class="btn btn-primary">
-                                <span>Start Course</span>
-                            </button>
-
-                        </div>
-                       
-                        </div>
-                    </div>
-                </div>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <p>No courses available.</p>
-        <?php endif; ?>
-    </div>
-</div>
 
 
                 <!-- Add more course cards as needed -->
@@ -149,7 +143,7 @@ $result = $conn->query($sql);
 
 
     </div>
-    </div>
+    
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -134,4 +134,12 @@ body {
     color: #f0a500;
 }
 
+.search-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
 
+.form-control {
+    width: 50%; 
+}
