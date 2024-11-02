@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style2.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--start course button-->
+
 </head>
+
 <body>
-    
+
     <!--Sidebar-->
     <div class="sidebar d-flex flex-column align-items-center">
         <div class="profile">
@@ -37,6 +45,16 @@
         </ul>
     </div>
 
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4" style="margin-left: 250px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">All Courses</a>
+        </div>
+    </nav>
+
+
+
+
     <!--Head Content-->
     <div class="head-content">
         <header class="d-flex justify-content-center align-content-center mb-4">
@@ -44,7 +62,53 @@
         </header>
         <div class="main-content">
             <!--Your Content-->
+
+            <!-- Course Grid -->
+            <div class="row">
+                <!-- Course Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">
+                        <div class="card-body">
+                            <h5 class="course-title">The Ultimate Git Course 2024: Zero to Hero</h5>
+                            <p class="course-author">Code Bless You</p>
+                            <div class="star-rating">★★★★★</div>
+                            <button class="btn btn-primary">
+                                <span>Start Course</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Course Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">
+                        <div class="card-body">
+                            <h5 class="course-title">Facebook Ads & Instagram Ads For E-Commerce</h5>
+                            <p class="course-author">Ing. Tomas Moravek, Learn Digital Marketing</p>
+                            <p class="course-progress">Start Course</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Add more course cards as needed -->
+            </div>
         </div>
+
+
+
     </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
