@@ -40,7 +40,7 @@ $result = $conn->query($sql);
 <div class="main-content container mt-4">
     <div class="row">
         <?php if ($result->num_rows > 0): ?>
-            <?php while ($row = $result->fetch_assoc()): ?>
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">

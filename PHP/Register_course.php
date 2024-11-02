@@ -1,3 +1,30 @@
+
+<?php
+// Database connection settings
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "fot_lms";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch courses from the database
+$sql = "SELECT cour_code, cour_name, cour_content,rating FROM course";
+$result = $conn->query($sql);
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +93,7 @@
             <!-- Course Grid -->
             <div class="row">
                 <!-- Course Card 1 -->
-                <div class="col-md-4 mb-4">
+               <!--<div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">
                         <div class="card-body">
@@ -79,18 +106,40 @@
                         </div>
                     </div>
                 </div>
-                <!-- Course Card 2 -->
+                
+-->
+
+<div class="main-content container mt-4">
+    <div class="row">
+        <?php if ($result->num_rows > 0): ?>
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">
                         <div class="card-body">
-                            <h5 class="course-title">Facebook Ads & Instagram Ads For E-Commerce</h5>
-                            <p class="course-author">Ing. Tomas Moravek, Learn Digital Marketing</p>
-                            <p class="course-progress">Start Course</p>
+                            <h5 class="course-title"><?php echo htmlspecialchars($row['cour_name']); ?></h5>
+                            <p class="course-author">Course Code: <?php echo htmlspecialchars($row['cour_code']); ?></p>
+                           <?php
+                           $starRating = str_repeat('★', $row['rating']) . str_repeat('☆', 5 - $row['rating']);?> 
+                           <div class='star-rating'><?php echo $starRating; ?></div>
+                           
+                            <!-- <div class="star-rating">★★★★★</div> -->
+                            <div>
+                            <button class="btn btn-primary">
+                                <span>Start Course</span>
+                            </button>
+
+                        </div>
+                       
                         </div>
                     </div>
                 </div>
-
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p>No courses available.</p>
+        <?php endif; ?>
+    </div>
+</div>
 
 
                 <!-- Add more course cards as needed -->
