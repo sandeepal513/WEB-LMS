@@ -52,14 +52,21 @@
                 
                 <!-- Gender Field -->
                 <div class="mb-3">
-                    <label>Gender</label><br>
-                    <input type="radio" name="gender" id="male" value="Male" class="form-check-input">
-                    <label for="male" class="form-check-label">Male</label><br>
-                    <input type="radio" name="gender" id="female" value="Female" class="form-check-input">
-                    <label for="female" class="form-check-label">Female</label><br>
-                    <input type="radio" name="gender" id="other" value="Other" class="form-check-input">
-                    <label for="other" class="form-check-label">Other</label>
+                  <label for="Gender">Gender</label><br>
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="gender" id="male" value="Male" class="form-check-input">
+                 <label for="male" class="form-check-label">Male</label>
                 </div>
+                   <div class="form-check form-check-inline">
+                      <input type="radio" name="gender" id="female" value="Female" class="form-check-input">
+                 <label for="female" class="form-check-label">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                   <input type="radio" name="gender" id="other" value="Other" class="form-check-input">
+                <label for="other" class="form-check-label">Other</label>
+                </div>
+               </div>
+
 
                 <div class="mb-3">
                     <label for="dob">Date of Birth</label>
