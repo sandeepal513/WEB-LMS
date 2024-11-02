@@ -13,9 +13,9 @@
     <!--Sidebar-->
     <div class="sidebar d-flex flex-column align-items-center">
         <div class="profile">
-            <img src="./img/lecturer_profile.png" alt="Profile" class="profile-pic">
-            <h2>Lecturer Name</h2>
-            <h6 class="stu-name">LECTURER</h6>
+            <img src="./img/student_profile.png" alt="Profile" class="profile-pic">
+            <h2>Student Name</h2>
+            <h6 class="stu-name">STUDENT</h6>
             <button class="btn btn-primary">View Profile</button>
         </div>
         <ul class="nav flex-column nav-links w-100 px-3">
