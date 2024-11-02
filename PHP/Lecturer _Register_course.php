@@ -14,21 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch courses from the database
-$sql = "SELECT 
-            lc.lect_id, 
-            l.lect_first_name, 
-            l.lect_last_name, 
-            c.cour_code, 
-            c.cour_name, 
-            c.cour_content,
-            c.rating
-
-        FROM 
-            course c
-        INNER JOIN 
-            lect_course lc ON lc.cour_code = c.cour_code
-        INNER JOIN 
-            lecturer l ON lc.lect_id = l.lect_id";
+$sql = "SELECT cour_code, cour_name, cour_content,rating FROM course";
 $result = $conn->query($sql);
 
 ?>
@@ -62,8 +48,8 @@ $result = $conn->query($sql);
     <div class="sidebar d-flex flex-column align-items-center">
         <div class="profile">
             <img src="./img/lecturer_profile.png" alt="Profile" class="profile-pic">
-            <h2>Student Name</h2>
-            <h6 class="stu-name">STUDENT</h6>
+            <h2>Lecturer Name</h2>
+            <h6 class="stu-name">LECTURER</h6>
             <button class="btn btn-primary">View Profile</button>
         </div>
         <ul class="nav flex-column nav-links w-100 px-3">
@@ -100,12 +86,12 @@ $result = $conn->query($sql);
         <header class="d-flex justify-content-center align-content-center mb-4">
             <input type="text" placeholder="Serach Courses...." class="form-control w-25 me-2">
             <div class="search-icon">
-                <i class="fas fa-search" style="color: #FFD700; font-size: 24px;"></i>
+            <i class="fas fa-search" style="color: #FFD700; font-size: 24px;"></i>
 
             </div>
 
 
-
+            
 
         </header>
         <div class="main-content">
@@ -124,10 +110,8 @@ $result = $conn->query($sql);
                                         <img src="https://via.placeholder.com/250x140" class="card-img-top" alt="Course Image">
                                         <div class="card-body">
                                             <h5 class="course-title"><?php echo htmlspecialchars($row['cour_name']); ?></h5>
-                                            <p class="course-author">Lecturer Name :
-                                                <?php echo htmlspecialchars($row['lect_first_name']) ." ". htmlspecialchars($row['lect_last_name']) ; ?>
-                                                
-
+                                            <p class="course-author">Course Code:
+                                                <?php echo htmlspecialchars($row['cour_code']); ?>
                                             </p>
                                             <?php
                                             $starRating = str_repeat('★', $row['rating']) . str_repeat('☆', 5 - $row['rating']); ?>
@@ -136,7 +120,7 @@ $result = $conn->query($sql);
                                             <!-- <div class="star-rating">★★★★★</div> -->
                                             <div>
                                                 <button class="btn btn-primary">
-                                                    <span>Apply Course</span>
+                                                    <span>Start Course</span>
                                                 </button>
 
                                             </div>
@@ -159,7 +143,7 @@ $result = $conn->query($sql);
 
 
     </div>
-
+    
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
