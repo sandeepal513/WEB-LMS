@@ -134,12 +134,15 @@ $result = $conn->query($sql);
                                             <div class='star-rating'><?php echo $starRating; ?></div>
 
                                             <!-- <div class="star-rating">★★★★★</div> -->
+
+
+                                            <!-- Enroll button-->
                                             <div>
                                                 <form action="Enroll_btn.php" method="POST">
                                                     <input type="hidden" name="cour_code"
                                                         value="<?php echo htmlspecialchars($row['cour_code']); ?>">
                                                     <input type="hidden" name="stu_id" value="<?php echo $student_id; ?>">
-                                                    <button class="btn btn-primary w-50" id="colorChangeButton"
+                                                    <button  class="btn btn-primary w-50" id="colorChangeButton"
                                                         onclick="changeColor()">
                                                         <span>Enroll</span>
                                                     </button>

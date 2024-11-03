@@ -86,12 +86,12 @@ $result = $conn->query($sql);
         <header class="d-flex justify-content-center align-content-center mb-4">
             <input type="text" placeholder="Serach Courses...." class="form-control w-25 me-2">
             <div class="search-icon">
-            <i class="fas fa-search" style="color: #FFD700; font-size: 24px;"></i>
+                <i class="fas fa-search" style="color: #FFD700; font-size: 24px;"></i>
 
             </div>
 
 
-            
+
 
         </header>
         <div class="main-content">
@@ -118,12 +118,36 @@ $result = $conn->query($sql);
                                             <div class='star-rating'><?php echo $starRating; ?></div>
 
                                             <!-- <div class="star-rating">★★★★★</div> -->
+                                            <!-- Start course button-->
                                             <div>
-                                                <button class="btn btn-primary">
-                                                    <span>Start Course</span>
-                                                </button>
+                                                <form action="Start_course_btn.php" method="POST">
+                                                    <input type="hidden" name="cour_code"
+                                                        value="<?php echo htmlspecialchars($row['cour_code']); ?>">
+                                                    <input type="hidden" name="lect_id" value="<?php echo $lecturer_id; ?>">
+                                                    <button class="btn btn-primary w-50" id="colorChangeButton"
+                                                        onclick="changeColor()">
+                                                        <span>Start course</span>
+                                                    </button>
+                                                </form>
 
                                             </div>
+                                            <script>
+                                                function changeColor() {
+                                                    var button = document.getElementById('colorChangeButton');
+                                                    var text = document.getElementById('buttonText');
+
+                                                    // Change the button class to btn-danger (red)
+                                                    button.classList.remove('btn-primary');
+                                                    button.classList.add('btn-danger');
+
+                                                    // Change the button text
+                                                    button.innerText = 'Course started';
+
+                                                    // Optionally disable the button
+                                                    button.disabled = true;
+
+                                                }
+                                            </script>
 
                                         </div>
                                     </div>
@@ -143,7 +167,7 @@ $result = $conn->query($sql);
 
 
     </div>
-    
+
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
