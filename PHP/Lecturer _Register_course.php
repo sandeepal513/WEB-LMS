@@ -120,34 +120,33 @@ $result = $conn->query($sql);
                                             <!-- <div class="star-rating">★★★★★</div> -->
                                             <!-- Start course button-->
                                             <div>
+                                                
+
                                                 <form action="Start_course_btn.php" method="POST">
                                                     <input type="hidden" name="cour_code"
                                                         value="<?php echo htmlspecialchars($row['cour_code']); ?>">
                                                     <input type="hidden" name="lect_id" value="<?php echo $lecturer_id; ?>">
-                                                    <button class="btn btn-primary w-50" id="colorChangeButton"
-                                                        onclick="changeColor()">
+                                                    <button class="btn btn-primary w-50 start-button">
                                                         <span>Start course</span>
                                                     </button>
                                                 </form>
 
                                             </div>
                                             <script>
-                                                function changeColor() {
-                                                    var button = document.getElementById('colorChangeButton');
-                                                    var text = document.getElementById('buttonText');
+                                            document.querySelectorAll('.start-button').forEach(button => {
+                                                button.addEventListener('click', function () {
+                                                    this.classList.remove('btn-primary');
+                                                    this.classList.add('btn-danger');
+                                                    this.innerText = 'Course started';
+                                                    this.disabled = true;
+                                                });
+                                            });
+                                        </script>
 
-                                                    // Change the button class to btn-danger (red)
-                                                    button.classList.remove('btn-primary');
-                                                    button.classList.add('btn-danger');
 
-                                                    // Change the button text
-                                                    button.innerText = 'Course started';
 
-                                                    // Optionally disable the button
-                                                    button.disabled = true;
 
-                                                }
-                                            </script>
+                                            
 
                                         </div>
                                     </div>
