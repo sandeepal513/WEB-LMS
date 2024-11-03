@@ -139,13 +139,30 @@ $result = $conn->query($sql);
                                                     <input type="hidden" name="cour_code"
                                                         value="<?php echo htmlspecialchars($row['cour_code']); ?>">
                                                     <input type="hidden" name="stu_id" value="<?php echo $student_id; ?>">
-                                                    <button class="btn btn-primary w-50">
+                                                    <button class="btn btn-primary w-50" id="colorChangeButton"
+                                                        onclick="changeColor()">
                                                         <span>Enroll</span>
                                                     </button>
                                                 </form>
 
                                             </div>
+                                            <script>
+                                                function changeColor() {
+                                                    var button = document.getElementById('colorChangeButton');
+                                                    var text = document.getElementById('buttonText');
 
+                                                    // Change the button class to btn-danger (red)
+                                                    button.classList.remove('btn-primary');
+                                                    button.classList.add('btn-danger');
+
+                                                    // Change the button text
+                                                    button.innerText = 'Enrolled';
+
+                                                    // Optionally disable the button
+                                                    button.disabled = true;
+
+                                                }
+                                            </script>
                                         </div>
                                     </div>
                                 </div>

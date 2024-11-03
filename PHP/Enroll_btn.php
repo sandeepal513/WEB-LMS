@@ -21,14 +21,15 @@ $stu_id = mysqli_real_escape_string($conn, $_POST['stu_id']);
 $sql = "INSERT INTO stu_course (cour_code, stu_id) VALUES ('c003', 's001')";
 
 if (mysqli_query($conn, $sql)) {
-    // Redirect back to the course page with success message
-    header("Location: courses.php?status=success");
-    exit(); // It's a good practice to call exit after a redirect
+    header("Location: Student _Register_course.php?status=success");
+    exit();
 } else {
-    // Redirect back with an error message
-    header("Location: courses.php?status=error");
-    exit(); // It's a good practice to call exit after a redirect
+    // Log error for debugging
+    error_log("MySQL Error: " . mysqli_error($conn));
+    header("Location: Student _Register_course.php?status=error");
+    exit();
 }
+
 
 // Close connection
 mysqli_close($conn);
