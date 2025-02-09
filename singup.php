@@ -18,15 +18,9 @@
         <div style="width: 100%; max-width: 400px; z-index: 1">
             <h2 class="text-center mb-3">Sign Up</h2>
             <div class="btn-div d-flex justify-content-center">
-                <!-- <button type="button" value="Student" name="roles" class="stu-div" id="stubtn" required>Student</button>
-                <button type="button" value="Lecturer" name="roles" class="lec-div" id="lecbtn" required>Lecturer</button>
-             -->
+                
              <button type="button" onclick="setRole('Student')" class="stu-div" id="stubtn">Student</button>
              <button type="button" onclick="setRole('Lecturer')" class="lec-div" id="lecbtn">Lecturer</button>
-                <!-- <button type="button" value="Student" onclick="setRole('Student')" class="stu-div" id="stubtn">Student</button>
-                <button type="button" value="Lecturer" onclick="setRole('Lecturer')" class="lec-div" id="lecbtn">Lecturer</button>
-
-             -->
             </div>
            
             
@@ -53,7 +47,13 @@
                 <!-- Gender Field -->
                 <div class="mb-3">
                   <label for="Gender">Gender</label><br>
-                    <div class="form-check form-check-inline">
+                  <select name="dropdown" class="form-control" id="gen" >
+                        <option> Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                      </div>
+                    <!-- <div class="form-check form-check-inline">
                       <input type="radio" name="gender" id="male" value="Male" class="form-check-input">
                  <label for="male" class="form-check-label">Male</label>
                 </div>
@@ -65,7 +65,7 @@
                    <input type="radio" name="gender" id="other" value="Other" class="form-check-input">
                 <label for="other" class="form-check-label">Other</label>
                 </div>
-               </div>
+               </div> -->
 
 
                 <div class="mb-3">
