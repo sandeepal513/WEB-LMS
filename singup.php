@@ -28,62 +28,49 @@
                 <input type="hidden" name="role" id="role"> <!-- Hidden input for role -->
 
                 <div class="mb-3">
-                    <label for="username">Username</label>
+                    <label for="username" style = "color:white; ">Username</label>
                     <input type="text" name="uname" id="unameid" class="form-control" placeholder="Enter username">
                 </div>
                 <div class="mb-3">
-                    <label for="first_name">First Name</label>
+                    <label for="first_name" style = "color:white;">First Name</label>
                     <input type="text" name="fname" id="fnameid" class="form-control" placeholder="Enter first name">
                 </div>
                 <div class="mb-3">
-                    <label for="last_name">Last Name</label>
+                    <label for="last_name" style = "color:white;">Last Name</label>
                     <input type="text" name="lname" id="lnameid" class="form-control" placeholder="Enter last name">
                 </div>
                 <div class="mb-3">
-                    <label for="email">Email</label>
+                    <label for="email" style = "color:white;">Email</label>
                     <input type="email" name="email" id="emailid" class="form-control" placeholder="Enter email">
                 </div>
                 
                 <!-- Gender Field -->
                 <div class="mb-3">
-                  <label for="Gender">Gender</label><br>
-                  <select name="dropdown" class="form-control" id="gen" >
+                  <label for="Gender" style = "color:white;">Gender</label><br>
+
+                     <select name="dropdown" class="form-control" id="gen" >
                         <option> Male</option>
                         <option>Female</option>
                         <option>Other</option>
                     </select>
                       </div>
-                    <!-- <div class="form-check form-check-inline">
-                      <input type="radio" name="gender" id="male" value="Male" class="form-check-input">
-                 <label for="male" class="form-check-label">Male</label>
-                </div>
-                   <div class="form-check form-check-inline">
-                      <input type="radio" name="gender" id="female" value="Female" class="form-check-input">
-                 <label for="female" class="form-check-label">Female</label>
-                </div>
-                <div class="form-check form-check-inline">
-                   <input type="radio" name="gender" id="other" value="Other" class="form-check-input">
-                <label for="other" class="form-check-label">Other</label>
-                </div>
-               </div> -->
-
-
-                <div class="mb-3">
-                    <label for="dob">Date of Birth</label>
+                  
+                      <div class="mb-3">
+                    <label for="dob" style = "color:white;">Date of Birth</label>
                     <input type="date" name="dob" class="form-control" id="dob">
                 </div>
                 <div class="mb-3">
-                    <label for="mobile_no">Mobile number</label>
+                    <label for="mobile_no" style = "color:white;">Mobile number</label>
                     <input type="text" name="mobileno" id="mobilenoid" class="form-control" placeholder="Enter mobile number">
                 </div>
                 <div class="mb-3">
-                    <label for="password">Password</label>
+                    <label for="password" style = "color:white;">Password</label>
                     <input type="password" name="pword" id="pwordid" class="form-control" placeholder="Enter password (8-12 characters)">
                 </div>
                 <div class="mb-3">
-                    <label for="confirm_password">Confirm Password</label>
+                    <label for="confirm_password" style = "color:white;">Confirm Password</label>
                     <input type="password" name="cpword" id="cpwordid" class="form-control" placeholder="Enter confirm password">
-                </div>
+                </div><br>
                 <button type="submit" class="btn btn-primary w-100">Register</button>
             </form>
 
