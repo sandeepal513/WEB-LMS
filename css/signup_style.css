@@ -40,6 +40,7 @@
     border-color: white;
     
 }
+
 .lec-div{
     border-radius: 0 10px 10px 0;
     border: 0;
@@ -55,10 +56,11 @@
     border-radius: 10px;
     width: 500px;
     padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 label{
-    color: #000000;
+    color: white;;
 }
 
 .stu-div, .lec-div {
